@@ -48,105 +48,20 @@ require "pry"
   # end
 end
 
-def num_points_scored (name)
-  answer = nil
 
-  game_hash.each do |team, details_hash|
-    # binding.pry
-    players_array = details_hash[:players]
-      players_array.each do |player, player_details_hash|
-        #binding.pry
-        if player == name
-          answer = player_details_hash[:points]
-        end
-      end
-  end
-  answer.to_i
+def num_points_scored(name)
+  player = find_player_by_name(name)
+  player.fetch(:points)
+  binding.pry
+end
+
+def players 
+  game_hash[:home][:players].merge(game_hash[:away][:players])
+
 end
 
 
-# shoe size of each player #
-def shoe_size(name)
-  answer = nil
-
-  game_hash.each do |team, details_hash|
-    # binding.pry
-    players_array = details_hash[:players]
-      players_array.each do |player, player_details_hash|
-        #binding.pry
-        if player == name
-          answer = player_details_hash[:shoe]
-        end
-      end
-  end
-  answer.to_i
-end
-
-
-def team_colors(name)
-  if name == "Brooklyn Nets"
-    game_hash[:home][:colors]
-  else
-    game_hash[:away][:colors]
-end
-end
-
-def team_names
-  array = Array.new
-  
-  home =game_hash[:home][:team_name]
-  away =game_hash[:away][:team_name]
-  
-  array << home
-  array << away
-  # binding.pry
-end
-team_names
-
-
-#go into Brooklyn nets
-def player_num 
-  p_num= game_hash[:home][:players]["Alan Anderson"][:number]
-  p_num.to_i
-# binding.pry
-end
-player_num 
-
-
-def player_numbers(team_name)
-  player_numbers = []
-  game_hash.each do |team, attributes|
-    #binding.pry
-    game_hash[team].each do |attribute, value|
-      #binding.pry
-      if value == team_name
-        game_hash[team][:players].each do |name, stats|
-          #binding.pry
-          game_hash[team][:players][name].each do |stat, val|
-            #binding.pry
-            if stat == :number
-              player_numbers << val.to_i
-            end
-          end
-        end
-      end
-    end
-  end
-  player_numbers
-end
-
-def player_stats(name)
-  # answer = nil
-
-  game_hash.each do |team, details_hash|
-     #binding.pry
-    players_array = details_hash[:players]
-      players_array.each do |player, player_details_hash|
-        #binding.pry
-        if player == name
-          answer = player_details_hash
-        end
-      end
-  end
-  answer
-end
+def find_player_by_name(name)
+  players.fetch(name)
+end 
+# puts find_player_by_name("Alan Anderson")
