@@ -79,6 +79,7 @@ def scored_most_points
         if player_details_hash[:points] > answer
           answer = player_details_hash[:points]
           player_scored_most_points = player
+          binding.pry
         end 
       end
     end 
