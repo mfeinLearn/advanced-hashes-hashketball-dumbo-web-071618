@@ -83,7 +83,7 @@ def scored_most_points
         end 
       end
     end 
-    player
+    player_scored_most_points
 end
 puts scored_most_points 
 
