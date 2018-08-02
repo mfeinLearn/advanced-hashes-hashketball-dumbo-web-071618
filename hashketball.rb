@@ -167,7 +167,7 @@ end
 
 
 def big_shoe_rebounds
-  # answer = nil
+  answer = nil
 
   game_hash.each do |team, details_hash|
     #binding.pry
@@ -175,9 +175,12 @@ def big_shoe_rebounds
       players_array.each do |player, player_details_hash|
         #binding.pry
           player_details_hash.each do |ke, va|
+            if ke == :rebounds
+              answer = player_details_hash[:rebounds]
             #binding.pry
+          end
           end
       end
   end
-  # answer.to_i
+  answer.to_i
 end
