@@ -127,7 +127,7 @@ team_names
 
 
 #go into Brooklyn nets
-def pla_num 
+def player_num 
   p_num= game_hash[:home][:players]["Alan Anderson"][:number]
   p_num.to_i
 # binding.pry
