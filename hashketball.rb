@@ -75,7 +75,7 @@ def scored_most_points
     players_hash = details_hash[:players]
     #binding.pry
       players_hash.each do |player, player_details_hash|
-        binding.pry
+        #binding.pry
         if player_details_hash[:points] > answer
           answer = player_details_hash[:points]
           player_scored_most_points = player
