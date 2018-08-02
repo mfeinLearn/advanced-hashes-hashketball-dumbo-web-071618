@@ -49,21 +49,35 @@ require "pry"
 end
 
 def num_points_scored (name)
-  answer = nil
+  #answer = nil
 
   game_hash.each do |team, details_hash|
     # binding.pry
-    players_array = details_hash[:players]
-      players_array.each do |player, player_details_hash|
+    players_hash = details_hash[:players]
+      players_hash.each do |player, player_details_hash|
         #binding.pry
         if player == name
-          answer = player_details_hash[:points]
+          #answer = 
+          player_details_hash[:points]
+          
         end
       end
   end
-  answer.to_i
+  #answer.to_i
 end
 
+def scored_most_points
+  game_hash.each do |team, details_hash|
+     #binding.pry
+    players_hash = details_hash[:players]
+    #binding.pry
+      players_hash.each do |player, player_details_hash|
+        binding.pry
+        if player_details_hash[:points] = :
+      end
+    end 
+end
+scored_most_points
 
 # shoe size of each player #
 def shoe_size(name)
@@ -105,7 +119,7 @@ team_names
 
 
 #go into Brooklyn nets
-def player_num 
+def pla_num 
   p_num= game_hash[:home][:players]["Alan Anderson"][:number]
   p_num.to_i
 # binding.pry
