@@ -67,17 +67,24 @@ def num_points_scored (name)
 end
 
 def scored_most_points
+  answer = 0
+  player_scored_most_points = nil
+  
   game_hash.each do |team, details_hash|
      #binding.pry
     players_hash = details_hash[:players]
     #binding.pry
       players_hash.each do |player, player_details_hash|
         binding.pry
-        if player_details_hash[:points] = :
+        if player_details_hash[:points] > answer
+          answer = player_details_hash[:points]
+          player_scored_most_points = player
+        end 
       end
     end 
+    
 end
-scored_most_points
+puts scored_most_points 
 
 # shoe size of each player #
 def shoe_size(name)
